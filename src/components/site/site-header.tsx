@@ -1,12 +1,12 @@
 "use client";
 
 import * as React from "react";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/site/theme-toggle";
-import { navItems } from "@/lib/avrora-data";
+import { navItems, mediaImages } from "@/lib/avrora-data";
 
 export function SiteHeader() {
   const [open, setOpen] = React.useState(false);
@@ -41,8 +41,12 @@ export function SiteHeader() {
           className="group flex items-center gap-2.5"
           aria-label="На початок"
         >
-          <span className="flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm transition-transform group-hover:scale-105">
-            <Sparkles className="size-5" strokeWidth={2.2} />
+          <span className="flex size-9 items-center justify-center overflow-hidden rounded-lg bg-primary shadow-sm transition-transform group-hover:scale-105">
+            <img
+              src={mediaImages.logo}
+              alt="Логотип «Аврора»"
+              className="h-full w-full object-cover"
+            />
           </span>
           <span className="flex flex-col leading-none">
             <span className="font-display text-base font-bold tracking-tight">

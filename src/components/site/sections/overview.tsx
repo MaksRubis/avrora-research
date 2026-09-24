@@ -16,7 +16,8 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Section } from "@/components/site/section";
 import { Icon } from "@/components/site/icon";
-import { company, kpis, timeline } from "@/lib/avrora-data";
+import { company, kpis, timeline, storeGallery } from "@/lib/avrora-data";
+import { Camera } from "lucide-react";
 
 export function Overview() {
   return (
@@ -129,6 +130,46 @@ export function Overview() {
                 </p>
               </div>
             </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Store format gallery */}
+      <div className="mt-6">
+        <div className="mb-4 flex items-center gap-2">
+          <Camera className="size-4 text-primary" />
+          <h3 className="font-display text-lg font-bold">Формат магазинів</h3>
+          <Badge variant="secondary" className="font-mono">
+            компактний формат
+          </Badge>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {storeGallery.map((g, i) => (
+            <motion.figure
+              key={g.src}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.45, delay: i * 0.08 }}
+              className="group relative overflow-hidden rounded-xl border border-border/70 shadow-sm"
+            >
+              <div className="relative aspect-[4/3] w-full overflow-hidden">
+                <img
+                  src={g.src}
+                  alt={g.alt}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                <figcaption className="absolute inset-x-0 bottom-0 p-4">
+                  <div className="font-display text-sm font-bold text-foreground">
+                    {g.caption}
+                  </div>
+                  <p className="mt-1 text-xs leading-snug text-muted-foreground">
+                    {g.text}
+                  </p>
+                </figcaption>
+              </div>
+            </motion.figure>
           ))}
         </div>
       </div>

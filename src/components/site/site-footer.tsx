@@ -1,7 +1,7 @@
 import * as React from "react";
-import { Sparkles, ExternalLink, BookOpen } from "lucide-react";
+import { ExternalLink, BookOpen } from "lucide-react";
 
-import { sources } from "@/lib/avrora-data";
+import { sources, mediaImages } from "@/lib/avrora-data";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -13,8 +13,12 @@ export function SiteFooter() {
           {/* Brand + disclaimer */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2.5">
-              <span className="flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                <Sparkles className="size-5" strokeWidth={2.2} />
+              <span className="flex size-9 items-center justify-center overflow-hidden rounded-lg bg-primary">
+                <img
+                  src={mediaImages.logo}
+                  alt="Логотип «Аврора»"
+                  className="h-full w-full object-cover"
+                />
               </span>
               <span className="flex flex-col leading-none">
                 <span className="font-display text-base font-bold tracking-tight">

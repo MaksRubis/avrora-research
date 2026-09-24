@@ -3,6 +3,7 @@ import { SiteFooter } from "@/components/site/site-footer";
 import { Hero } from "@/components/site/sections/hero";
 import { Overview } from "@/components/site/sections/overview";
 import { Growth } from "@/components/site/sections/growth";
+import { WarResilience } from "@/components/site/sections/war-resilience";
 import { Market } from "@/components/site/sections/market";
 import { Competitors } from "@/components/site/sections/competitors";
 import { Audience } from "@/components/site/sections/audience";
@@ -19,6 +20,7 @@ export default function Home() {
         <Hero />
         <Overview />
         <Growth />
+        <WarResilience />
         <Market />
         <Competitors />
         <Audience />
