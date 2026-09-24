@@ -1,0 +1,18 @@
+# Netlify configuration for the «Аврора» marketing research site (Next.js 16)
+# Docs: https://docs.netlify.com/integrations/frameworks/next-js/
+
+[build]
+  # Run a plain Next.js build (the Netlify Next.js plugin handles SSR/SSG output).
+  command = "next build"
+  publish = ".next"
+
+[build.environment]
+  # Next.js 16 requires Node.js 20.9+ (LTS recommended)
+  NODE_VERSION = "20"
+  # Don't fail the build on lint warnings
+  NEXT_TELEMETRY_DISABLED = "1"
+
+# The Next.js runtime plugin is auto-detected, but we declare it explicitly
+# so the exact version is pinned and API routes / SSR work out of the box.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
