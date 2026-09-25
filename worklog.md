@@ -41,3 +41,20 @@ Stage Summary:
 - New dedicated "Війна та стійкість" section with 200+ stores lost, 2 DCs destroyed, 929M₴ charity, 26M₴ solar, 20M₴ veteran grants, 6 DCs restored; full war timeline 2022→2026; charity breakdown bar.
 - 4 generated images integrated: logo in header+footer, store facade+interior in Overview gallery, humanitarian aid as war-section feature.
 - All flows browser-verified, no errors. If user provides original photos later, they can replace files in public/media/.
+
+---
+Task ID: 3
+Agent: main (orchestrator)
+Task: Replace the header/footer brand block (square box + "Аврора / Маркетингове дослідження" text labels) with just the user's logo shown bigger, no container, no text.
+
+Work Log:
+- Detected logo.png had a solid light background (RGB ~225 at corners, no alpha) — would itself render as the "square" the user wanted gone.
+- Post-processed public/media/logo.png with PIL: converted to RGBA, built a feathered alpha mask from luminance (lum>228 → transparent, lum<195 → opaque, soft ramp between) to key out the light background while keeping the magenta/orange mark. Verified alpha extrema (0..255).
+- Rewrote SiteHeader brand block: removed the rounded-lg bg-primary square container and the two-line text label; replaced with a single <img> at h-10 (sm:h-11) object-contain, clickable to scroll to hero.
+- Rewrote SiteFooter brand block: removed the square + text label; replaced with <img> at h-12 (sm:h-14) object-contain; kept the disclaimer paragraph below.
+- Lint clean; dev server still serving 200.
+- Agent Browser verification: header logo now 44x44 displayed (was 36px-in-box), footer 56x56; text "Маркетингове дослідження" gone from both; logo loads with alpha.
+- VLM visual review (light + dark): logo shows as just the mark with transparent background blending into the page, no visible square box, no "Аврора" word; clearly visible on both themes; footer disclaimer paragraph preserved.
+
+Stage Summary:
+- Header & footer now show only the logo (transparent PNG, bigger size), no square container, no text labels — exactly as requested. When the user drops in their real logo as public/media/logo.png, the same layout applies.

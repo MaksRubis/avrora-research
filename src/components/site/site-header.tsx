@@ -41,21 +41,11 @@ export function SiteHeader() {
           className="group flex items-center gap-2.5"
           aria-label="На початок"
         >
-          <span className="flex size-9 items-center justify-center overflow-hidden rounded-lg bg-primary shadow-sm transition-transform group-hover:scale-105">
-            <img
-              src={mediaImages.logo}
-              alt="Логотип «Аврора»"
-              className="h-full w-full object-cover"
-            />
-          </span>
-          <span className="flex flex-col leading-none">
-            <span className="font-display text-base font-bold tracking-tight">
-              Аврора
-            </span>
-            <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              Маркетингове дослідження
-            </span>
-          </span>
+          <img
+            src={mediaImages.logo}
+            alt="Логотип «Аврора»"
+            className="h-10 w-auto shrink-0 object-contain transition-transform group-hover:scale-105 sm:h-11"
+          />
         </button>
 
         {/* Desktop nav */}

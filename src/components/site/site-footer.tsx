@@ -12,23 +12,11 @@ export function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-3">
           {/* Brand + disclaimer */}
           <div className="md:col-span-1">
-            <div className="flex items-center gap-2.5">
-              <span className="flex size-9 items-center justify-center overflow-hidden rounded-lg bg-primary">
-                <img
-                  src={mediaImages.logo}
-                  alt="Логотип «Аврора»"
-                  className="h-full w-full object-cover"
-                />
-              </span>
-              <span className="flex flex-col leading-none">
-                <span className="font-display text-base font-bold tracking-tight">
-                  Аврора
-                </span>
-                <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                  Маркетингове дослідження
-                </span>
-              </span>
-            </div>
+            <img
+              src={mediaImages.logo}
+              alt="Логотип «Аврора»"
+              className="h-12 w-auto object-contain sm:h-14"
+            />
             <p className="mt-4 max-w-sm text-sm text-muted-foreground">
               Навчальний проєкт з дисципліни «Маркетингові дослідження».
               Комплексний аналіз мережі мультимаркетів «Аврора» в Україні.
